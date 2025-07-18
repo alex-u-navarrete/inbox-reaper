@@ -35,13 +35,13 @@ export default function Home() {
             <span className="text-xl font-bold text-gray-900">Inbox Reaper</span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-primary-600 transition-colors">
+            <a href="#features" className="text-gray-600 hover:text-primary-600 transition-colors scroll-smooth">
               Features
             </a>
-            <a href="#security" className="text-gray-600 hover:text-primary-600 transition-colors">
+            <a href="#security" className="text-gray-600 hover:text-primary-600 transition-colors scroll-smooth">
               Security
             </a>
-            <a href="#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
+            <a href="#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors scroll-smooth">
               How it Works
             </a>
           </nav>
@@ -79,7 +79,7 @@ export default function Home() {
           <button 
             onClick={handleConnectGmail}
             disabled={isLoading}
-            className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 mx-auto"
           >
             {isLoading ? (
               <>
@@ -146,8 +146,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="px-6 py-16 bg-gray-50">
+      {/* Features Section */}
+      <section id="features" className="px-6 py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -210,7 +210,7 @@ export default function Home() {
             <button 
               onClick={handleConnectGmail}
               disabled={isLoading}
-              className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed flex items-center justify-center gap-2 mx-auto"
+              className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 mx-auto"
             >
               {isLoading ? (
                 <>
@@ -221,6 +221,74 @@ export default function Home() {
                 'Get Started Now'
               )}
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="px-6 py-16 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              How Inbox Reaper Works
+            </h2>
+            <p className="text-gray-600">
+              Built on Gmail&rsquo;s official API with industry-standard security practices.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <span className="text-primary-600 font-semibold text-sm">1</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Smart Email Detection</h3>
+                  <p className="text-gray-600">
+                    Scans your Gmail inbox using List-Unsubscribe headers to identify subscription emails automatically.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <span className="text-primary-600 font-semibold text-sm">2</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Bulk Management</h3>
+                  <p className="text-gray-600">
+                    Select multiple subscriptions and unsubscribe or delete them all at once with a single click.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <span className="text-primary-600 font-semibold text-sm">3</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Privacy First</h3>
+                  <p className="text-gray-600">
+                    All processing happens in real-time. We never store your emails or personal data.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                  <span className="text-primary-600 font-semibold text-sm">4</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Instant Results</h3>
+                  <p className="text-gray-600">
+                    Clean inbox in minutes, not hours. See immediate results as subscriptions are removed.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
