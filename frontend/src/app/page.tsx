@@ -114,8 +114,8 @@ export default function Home() {
               <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">OAuth2 Authentication</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">OAuth2 Authentication</h3>
+              <p className="text-gray-800">
                 Uses Google&rsquo;s official OAuth2 flow. We never see your password, 
                 and you can revoke access anytime.
               </p>
@@ -125,8 +125,8 @@ export default function Home() {
               <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">No Data Storage</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">No Data Storage</h3>
+              <p className="text-gray-800">
                 We don&rsquo;t store your emails or personal data. Everything happens 
                 in real-time and stays with you.
               </p>
@@ -136,8 +136,8 @@ export default function Home() {
               <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Official Gmail API</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">Official Gmail API</h3>
+              <p className="text-gray-800">
                 Direct integration with Gmail&rsquo;s official API. Secure, reliable, 
                 and following Google&rsquo;s best practices.
               </p>
@@ -165,8 +165,8 @@ export default function Home() {
                 <div className="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <Mail className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">1. Connect</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">1. Connect</h3>
+                <p className="text-gray-800">
                   Securely connect your Gmail account using Google&rsquo;s OAuth2. 
                   One click and you&rsquo;re authenticated.
                 </p>
@@ -181,8 +181,8 @@ export default function Home() {
                 <div className="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <Search className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">2. Scan</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">2. Scan</h3>
+                <p className="text-gray-800">
                   We analyze your inbox for subscription emails with 
                   unsubscribe links and show you what we found.
                 </p>
@@ -197,8 +197,8 @@ export default function Home() {
                 <div className="w-20 h-20 gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <Trash2 className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">3. Clean</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">3. Clean</h3>
+                <p className="text-gray-800">
                   Choose what to unsubscribe from and delete. 
                   Bulk actions make cleanup fast and easy.
                 </p>
@@ -294,12 +294,67 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-8 bg-white border-t border-gray-200">
-        <div className="max-w-4xl mx-auto text-center text-gray-600">
-          <p>&copy; 2024 Inbox Reaper. Built with privacy and security in mind.</p>
-          <p className="mt-2 text-sm">
-            This tool connects directly to your Gmail account. We don&rsquo;t store any of your data.
-          </p>
+      <footer className="px-6 py-12 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto">
+          {/* Support Section */}
+          <div className="text-center mb-8">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              💸 Support This Free Tool
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Inbox Reaper is completely free and open-source. If this tool saves you time and helps clean your inbox, 
+              consider supporting its development with a small donation.
+            </p>
+            
+            {/* PayPal Donation Form */}
+            <form action="https://www.paypal.com/donate" method="post" target="_top" className="inline-block">
+              <input type="hidden" name="business" value="R693WXZJC4B6A" />
+              <input type="hidden" name="no_recurring" value="0" />
+              <input type="hidden" name="item_name" value="💸 Donate
+🙏 Support This Tool
+❤️ Help Keep It Free" />
+              <input type="hidden" name="currency_code" value="USD" />
+              <input 
+                type="image" 
+                src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" 
+                name="submit" 
+                title="PayPal - The safer, easier way to pay online!" 
+                alt="Donate with PayPal button"
+                className="hover:opacity-80 transition-opacity border-0"
+              />
+              <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" className="border-0" />
+            </form>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-200 pt-8">
+            <div className="text-center text-gray-600">
+              <p className="text-gray-900 font-medium">
+                &copy; 2025 Inbox Reaper by Alexis Navarrete
+              </p>
+              <p className="mt-2 text-sm">
+                Built with privacy and security in mind. This tool connects directly to your Gmail account via OAuth2.
+              </p>
+              <p className="mt-1 text-sm">
+                We don&rsquo;t store any of your data. Everything happens in real-time and stays with you.
+              </p>
+              
+              <div className="mt-4 flex items-center justify-center space-x-6 text-sm">
+                <span className="flex items-center">
+                  <Shield className="w-4 h-4 mr-1 text-green-600" />
+                  Open Source
+                </span>
+                <span className="flex items-center">
+                  <CheckCircle className="w-4 h-4 mr-1 text-green-600" />
+                  Privacy First
+                </span>
+                <span className="flex items-center">
+                  <Mail className="w-4 h-4 mr-1 text-blue-600" />
+                  Gmail Official API
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
 
