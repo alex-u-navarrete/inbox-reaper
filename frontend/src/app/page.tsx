@@ -2,22 +2,22 @@ import { Shield, Mail, Trash2, CheckCircle, Search, Unlink } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="px-6 py-4">
+      <header className="px-6 py-4 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Mail className="w-8 h-8 text-primary-600" />
             <span className="text-xl font-bold text-gray-900">Inbox Reaper</span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="#features" className="text-gray-600 hover:text-primary-600 transition-colors">
               Features
             </a>
-            <a href="#security" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="#security" className="text-gray-600 hover:text-primary-600 transition-colors">
               Security
             </a>
-            <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">
+            <a href="#how-it-works" className="text-gray-600 hover:text-primary-600 transition-colors">
               How it Works
             </a>
           </nav>
@@ -25,38 +25,38 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 py-20">
+      <section className="px-6 py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Reclaim Your
-            <span className="gradient-primary bg-clip-text text-transparent"> Gmail Inbox</span>
+            <span className="text-primary-600"> Gmail Inbox</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto leading-relaxed">
             Automatically detect, unsubscribe from, and bulk delete unwanted email subscriptions. 
             Secure, private, and built for your peace of mind.
           </p>
           
           {/* Trust Badges */}
-          <div className="flex items-center justify-center space-x-6 mb-8">
-            <div className="flex items-center text-success-600">
+          <div className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center text-green-600 bg-green-50 px-3 py-2 rounded-full">
               <Shield className="w-5 h-5 mr-2" />
-              <span className="text-sm font-medium">OAuth2 Secure</span>
+              <span className="text-sm font-semibold">OAuth2 Secure</span>
             </div>
-            <div className="flex items-center text-success-600">
+            <div className="flex items-center text-green-600 bg-green-50 px-3 py-2 rounded-full">
               <CheckCircle className="w-5 h-5 mr-2" />
-              <span className="text-sm font-medium">No Data Stored</span>
+              <span className="text-sm font-semibold">No Data Stored</span>
             </div>
-            <div className="flex items-center text-success-600">
+            <div className="flex items-center text-green-600 bg-green-50 px-3 py-2 rounded-full">
               <Mail className="w-5 h-5 mr-2" />
-              <span className="text-sm font-medium">Gmail Official API</span>
+              <span className="text-sm font-semibold">Gmail Official API</span>
             </div>
           </div>
 
-          <button className="gradient-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all transform hover:scale-105">
+          <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
             Connect Your Gmail
           </button>
           
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="text-sm text-gray-600 mt-4">
             Free to use • No registration required • Works in seconds
           </p>
         </div>
