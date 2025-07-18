@@ -39,11 +39,12 @@ router.get('/google/callback', async (req, res) => {
 
   if (error) {
     console.error('❌ OAuth error:', error);
-    return res.status(400).json({ error: 'OAuth authorization failed' });
+    return res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/callback?error=${encodeURIComponent(error)}`);
   }
 
   if (!code) {
-    return res.status(400).json({ error: 'No authorization code received' });
+    console.error('❌ No authorization code received');
+    return res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/callback?error=no_code`);
   }
 
   try {
@@ -69,16 +70,8 @@ router.get('/google/callback', async (req, res) => {
     console.log('🔑 Access token:', tokens.access_token ? 'Present' : 'Missing');
     console.log('🔄 Refresh token:', tokens.refresh_token ? 'Present' : 'Missing');
 
-    // Return success response
-    res.json({ 
-      success: true, 
-      message: 'Gmail connected successfully!',
-      hasRefreshToken: !!tokens.refresh_token,
-      nextSteps: {
-        test_connection: '/gmail/test',
-        scan_emails: '/gmail/scan'
-      }
-    });
+    // Redirect to frontend callback page with success
+    res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/callback?code=${encodeURIComponent(code)}&success=true`);
 
   } catch (error) {
     console.error('❌ Token exchange error:', error);
@@ -87,10 +80,9 @@ router.get('/google/callback', async (req, res) => {
       stack: error.stack,
       code: error.code
     });
-    res.status(500).json({ 
-      error: 'Failed to exchange authorization code',
-      details: error.message 
-    });
+    
+    // Redirect to frontend callback page with error
+    res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/callback?error=token_exchange_failed`);
   }
 });
 

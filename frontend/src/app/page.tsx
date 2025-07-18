@@ -1,6 +1,30 @@
+'use client';
+
 import { Shield, Mail, Trash2, CheckCircle, Search, Unlink } from "lucide-react";
+import { useState, useEffect } from "react";
+import ErrorModal from "./components/ErrorModal";
 
 export default function Home() {
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Check for OAuth callback errors in URL
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    
+    if (error) {
+      setShowErrorModal(true);
+      // Clean up URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  }, []);
+
+  const handleConnectGmail = () => {
+    setIsLoading(true);
+    // Redirect to backend OAuth endpoint
+    window.location.href = 'http://localhost:3001/auth/google';
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -52,8 +76,19 @@ export default function Home() {
             </div>
           </div>
 
-          <button className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-            Connect Your Gmail
+          <button 
+            onClick={handleConnectGmail}
+            disabled={isLoading}
+            className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            {isLoading ? (
+              <>
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Connecting...
+              </>
+            ) : (
+              'Connect Your Gmail'
+            )}
           </button>
           
           <p className="text-sm text-gray-600 mt-4">
@@ -172,8 +207,19 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <button className="gradient-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all transform hover:scale-105">
-              Get Started Now
+            <button 
+              onClick={handleConnectGmail}
+              disabled={isLoading}
+              className="bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed flex items-center justify-center gap-2 mx-auto"
+            >
+              {isLoading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  Connecting...
+                </>
+              ) : (
+                'Get Started Now'
+              )}
             </button>
           </div>
         </div>
@@ -188,6 +234,14 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* Error Modal */}
+      <ErrorModal 
+        isOpen={showErrorModal}
+        onClose={() => setShowErrorModal(false)}
+        title="Gmail Connection Failed"
+        message="We couldn't connect to your Gmail account. This might be due to network issues or if you canceled the authorization. Please try again."
+      />
     </div>
   );
 }
